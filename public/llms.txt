@@ -1,0 +1,46 @@
+# Northwind Estate — LLM Knowledge Summary
+
+> Website: Northwind Estate (https://northwindestate.com)
+> Location: Sector 22D, Yamuna Expressway, Greater Noida, Uttar Pradesh, India
+> Purpose: Official lead-generation & property informational portal for Northwind Estate residential project.
+
+## 1. Project Overview
+Northwind Estate is a modern low-density residential gated community situated in Sector 22D on Yamuna Expressway. The project offers luxury 3 BHK and 4 BHK apartment residences designed with wide balconies, vitrified flooring, and contemporary architectural elevation.
+
+## 2. Core Specifications & BHK Configurations
+- **3 BHK Luxury Apartment**: Spacious 3-bedroom layout with large living hall, wide balconies, master suite with attached bath, vitrified tile flooring, and UPVC toughened glass doors. Price/Area on Request.
+- **4 BHK Ultra Estate Residence**: Ultra-spacious 4-bedroom executive suite with en-suite bathrooms, double-height balcony layout options, separate utility space, and premium fixtures. Price/Area on Request.
+- **Finishes & Fittings**: Vitrified tiles in living/bedrooms, anti-skid balcony tiles, granite kitchen counter with SS sink, MS balcony railings, putty/OBD wall finishes, and gypsum tile grid false ceiling in bathrooms.
+
+## 3. Location & Connectivity Advantages
+- **Sector 22D Yamuna Expressway**: Strategic location in NCR's primary growth corridor.
+- **Proximity to Jewar Airport**: Close access to the upcoming Noida International Airport (Jewar Airport).
+- **Arterial Highway Access**: Direct connectivity to Greater Noida, Noida, Delhi, and Agra via Yamuna Expressway.
+- **Infrastructure Expansion**: Benefiting from planned metro extension, proposed rapid rail, educational hubs, and industrial logistics parks.
+
+## 4. Key Amenities
+- Clubhouse & Social Lounge
+- Temperature-Controlled Swimming Pool & Kids Pool
+- Fully-Equipped Fitness Gymnasium
+- Landscaped Zen Gardens & Walking Circuits
+- Children's Safe Outdoor Play Area
+- 24x7 Multi-Tier Gated Security with CCTV
+- 100% Uninterrupted Power Backup
+- Reserved Podium & Covered Parking
+
+## 5. Primary Pages & Sitemap
+- Home Page (`/`): Project hero, key highlights, 3 BHK & 4 BHK cards, amenities grid, location map, FAQs, lead form.
+- About Page (`/about`): Detailed project vision, architectural design, construction specifications.
+- Amenities Page (`/amenities`): Lifestyle facilities, location advantages, interactive floor plan blueprints.
+- Contact Page (`/contact`): High-conversion lead form, site visit cab booking, phone & WhatsApp contact.
+- Supporting Legal Pages: `/privacy-policy`, `/terms-and-conditions`, `/disclaimer`.
+
+## 6. Lead Conversion & Contact
+- Phone: +91 97177 00596
+- WhatsApp: +91 97177 00596
+- Lead Enquiry API: `POST /api/leads` (stores name, phone, email, configuration, budget, visit date, message, UTM parameters, and consent).
+
+## 7. Important Disclaimers
+- All renderings, layout plans, and dimensions are artistic impressions.
+- RERA details: To be updated.
+- No physical address displayed on website footer as per policy.

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="50%" stop-color="#C5A059" />
+      <stop offset="100%" stop-color="#9A7B38" />
+    </linearGradient>
+    <linearGradient id="darkBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E232A" />
+      <stop offset="100%" stop-color="#121519" />
+    </linearGradient>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B2A38" />
+      <stop offset="60%" stop-color="#2D4356" />
+      <stop offset="100%" stop-color="#435B66" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3E2B" />
+      <stop offset="100%" stop-color="#112419" />
+    </linearGradient>
+    <linearGradient id="bluePool" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F4C81" />
+      <stop offset="100%" stop-color="#1B9AAA" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  
+  <rect width="800" height="600" fill="url(#greenGrad)"/>
+  <circle cx="400" cy="300" r="180" fill="#2A4836" stroke="url(#goldGrad)" stroke-width="2"/>
+  <path d="M300 380 Q 400 240, 500 380 Z" fill="#141920" opacity="0.8"/>
+  <text x="400" y="310" font-family="'Playfair Display', serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">Low-Density Sanctuary</text>
+  <text x="400" y="345" font-family="'Inter', sans-serif" font-size="14" fill="url(#goldGrad)" text-anchor="middle">Maximum Open Greenery &amp; Privacy</text>
+
+</svg>
