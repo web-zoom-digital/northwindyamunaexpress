@@ -91,12 +91,10 @@ export default function Hero() {
 
   const totalCards = PROJECT_CARDS.length;
 
-  // Smooth Card-by-Card rotation from Left to Right
   const rotateLeftToRight = useCallback(() => {
     setStartIndex((prev) => (prev - 1 + totalCards) % totalCards);
   }, [totalCards]);
 
-  // Automatic Card-by-Card Rotation (Every 3.0s)
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
@@ -123,10 +121,7 @@ export default function Hero() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-4xl mx-auto space-y-3 flex flex-col items-center"
         >
-          {/* Location Kicker */}
-          <p className="text-xs sm:text-sm font-sans font-semibold uppercase tracking-widest text-[#ACC78C]">
-            Sector 22D, Yamuna Expressway • Greater Noida
-          </p>
+         
 
           {/* H1 Headline */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-[#FFFCEC] leading-[1.15] max-w-4xl">
@@ -134,10 +129,6 @@ export default function Hero() {
             <span className="text-[#ACC78C]">on Yamuna Expressway</span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-xs sm:text-sm md:text-base text-[#FFFCEC]/80 leading-relaxed max-w-2xl font-light">
-            Northwind Estate brings together open landscaped grounds, generous room dimensions, and dual-balcony apartment layouts in Greater Noida&apos;s rapidly growing residential corridor.
-          </p>
         </motion.div>
 
         {/* 3D CARD ROTATION PANORAMIC ARC */}
@@ -204,9 +195,6 @@ export default function Hero() {
                         />
                       </motion.div>
                     </AnimatePresence>
-
-                    {/* Gradient Overlay for Text Readability */}
-                    <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#0D3829]/95 via-transparent to-transparent" />
 
                     {/* Card Meta Description */}
                     <div className="absolute inset-x-0 bottom-0 p-2.5 sm:p-3.5 z-10">
