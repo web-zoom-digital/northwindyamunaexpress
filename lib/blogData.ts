@@ -1,207 +1,113 @@
 export interface BlogPost {
   slug: string;
   title: string;
-  subtitle: string;
-  excerpt: string;
-  coverImage: string;
   category: string;
   date: string;
   isoDate: string;
-  readTime: string;
-  author: {
-    name: string;
-    role: string;
-  };
-  tags: string[];
+  excerpt: string;
 }
 
 export const blogCategories = [
   "All Articles",
-  "Investment & Growth",
+  "Floor Plan Planning",
+  "Buyer Due Diligence",
+  "Property Advisory",
+  "Location Analysis",
+  "Community Planning",
   "Architecture & Planning",
-  "Luxury Interiors",
-  "Home Design",
-  "Lifestyle & Amenities",
-  "Infrastructure & Transit"
 ] as const;
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: "yamuna-expressway-real-estate-investment-growth-2025",
-    title: "Why Sector 22D Yamuna Expressway is NCR's Highest Potential Investment Corridor",
-    subtitle: "Catalyzed by the Noida International Airport, Film City, and industrial megaprojects, Sector 22D is transforming into Greater Noida's prime residential hub.",
-    excerpt: "Discover why infrastructure catalysts including Noida International Airport and Film City are driving unprecedented capital appreciation and end-user demand in Sector 22D Yamuna Expressway.",
-    coverImage: "/images/blog/yamuna-expressway-investment-growth.jpg",
-    category: "Investment & Growth",
-    date: "October 12, 2025",
-    isoDate: "2025-10-12",
-    readTime: "5 min read",
-    author: {
-      name: "Northwind Research Desk",
-      role: "Infrastructure & Real Estate Analyst"
-    },
-    tags: ["Yamuna Expressway", "Sector 22D", "Jewar Airport", "Real Estate Investment", "Capital Appreciation"]
+    slug: "how-to-compare-3-bhk-and-4-bhk-floor-plans",
+    title: "How to Compare 3 BHK and 4 BHK Floor Plans",
+    category: "Floor Plan Planning",
+    date: "October 2025",
+    isoDate: "2025-10-18",
+    excerpt:
+      "When comparing three-bedroom and four-bedroom layouts, evaluate functional spatial zoning, balcony distribution, en-suite bathroom privacy, and long-term household expansion requirements rather than assessing total gross square footage alone.",
   },
   {
-    slug: "low-density-living-sector-22d-yamuna-expressway",
-    title: "The Rise of Low-Density Luxury Living: Why Space & Greenery Matter More Than Ever",
-    subtitle: "How modern gated communities with fewer homes per acre and expansive forest greens are redefining urban well-being and privacy.",
-    excerpt: "Explore how low-density residential enclaves offer superior privacy, cleaner air, and expansive natural buffers compared to congested urban centers.",
-    coverImage: "/images/blog/low-density-luxury-living-sector-22d.jpg",
-    category: "Architecture & Planning",
-    date: "October 08, 2025",
-    isoDate: "2025-10-08",
-    readTime: "6 min read",
-    author: {
-      name: "Northwind Architectural Team",
-      role: "Urban Planning & Landscape Design"
-    },
-    tags: ["Low Density Living", "Green Architecture", "Urban Planning", "Private Living", "Sustainable Homes"]
+    slug: "carpet-area-vs-super-built-up-area-explained",
+    title: "Carpet Area vs. Super Built-up Area Explained",
+    category: "Buyer Due Diligence",
+    date: "October 2025",
+    isoDate: "2025-10-09",
+    excerpt:
+      "A clear understanding of RERA carpet area—the net usable floor area bounded by internal walls—versus super built-up area helps homebuyers evaluate genuine living space and assess true price-per-square-foot metrics across residential developments.",
   },
   {
-    slug: "luxury-3bhk-4bhk-interior-design-balcony-living",
-    title: "Inside Modern Luxury Residences: Expansive Balconies, Cross-Ventilation & Smart Layouts",
-    subtitle: "A detailed look into the architectural nuances of 3 BHK and 4 BHK luxury residences built for modern multi-generational comfort.",
-    excerpt: "Step inside contemporary 3 & 4 BHK residences designed with expansive sit-out balconies, master suites, and bespoke architectural specifications.",
-    coverImage: "/images/blog/luxury-3bhk-4bhk-balcony-living.jpg",
-    category: "Luxury Interiors",
-    date: "September 28, 2025",
-    isoDate: "2025-09-28",
-    readTime: "4 min read",
-    author: {
-      name: "Northwind Design Studio",
-      role: "Interior Architecture Specialist"
-    },
-    tags: ["3 BHK Luxury", "4 BHK Estate", "Balcony Living", "Interior Design", "Floor Plans"]
+    slug: "important-things-to-consider-before-buying-a-property",
+    title: "Important Things to Consider Before Buying a Property",
+    category: "Property Advisory",
+    date: "September 2025",
+    isoDate: "2025-09-29",
+    excerpt:
+      "Key technical and civic factors to examine prior to property commitment include structural earthquake resistance ratings, internal tower setbacks, low-density zoning, vehicular circulation plans, and access to arterial road networks.",
   },
   {
-    slug: "master-bedroom-suite-design-modern-apartments",
-    title: "Crafting the Ultimate Master Bedroom Suite: A Harmony of Light, Texture & Serenity",
-    subtitle: "From tailored ambient lighting to acoustic glass insulation, explore the essential design elements of a private sanctuary.",
-    excerpt: "Discover how tailored lighting, warm textures, and ergonomic layouts transform master bedrooms into private luxury retreats.",
-    coverImage: "/images/blog/master-bedroom-suite-luxury-interiors.jpg",
-    category: "Home Design",
-    date: "September 20, 2025",
-    isoDate: "2025-09-20",
-    readTime: "5 min read",
-    author: {
-      name: "Northwind Design Studio",
-      role: "Interior Architecture Specialist"
-    },
-    tags: ["Master Bedroom", "Interior Styling", "Lighting Design", "Home Decor", "Luxury Bedrooms"]
+    slug: "how-to-evaluate-a-propertys-location",
+    title: "How to Evaluate a Property's Location",
+    category: "Location Analysis",
+    date: "September 2025",
+    isoDate: "2025-09-22",
+    excerpt:
+      "A thorough location assessment looks beyond immediate surroundings to analyze published authority master plans, regional expressway corridors, planned transit links, social infrastructure, and planned green buffer distances.",
   },
   {
-    slug: "resort-style-amenities-gated-community-yamuna",
-    title: "Resort-Inspired Amenities: Transforming Everyday Living into a Vacation Experience",
-    subtitle: "How dedicated swimming pavilions, Zen gardens, and fitness clubs foster wellness and vibrant community bonds.",
-    excerpt: "From Olympic-length swimming pools and Zen gardens to multi-tier security, explore the lifestyle amenities shaping modern gated communities.",
-    coverImage: "/images/blog/resort-style-amenities-gated-community.jpg",
-    category: "Lifestyle & Amenities",
-    date: "September 15, 2025",
+    slug: "understanding-floor-plans-and-space-utilization",
+    title: "Understanding Floor Plans and Space Utilization",
+    category: "Floor Plan Planning",
+    date: "September 2025",
     isoDate: "2025-09-15",
-    readTime: "4 min read",
-    author: {
-      name: "Northwind Lifestyle Desk",
-      role: "Community Experience Curator"
-    },
-    tags: ["Resort Amenities", "Clubhouse", "Swimming Pool", "Gated Community", "Wellness"]
+    excerpt:
+      "Efficient floor layouts prioritize direct circulation paths, minimize dead hallway corridors, separate guest entertainment zones from family sleeping quarters, and ensure dedicated dry utility spaces for household chores.",
   },
   {
-    slug: "yeida-master-plan-2041-future-infrastructure",
-    title: "YEIDA Master Plan 2041: How Sector 22D is Positioned for Next-Gen Urban Growth",
-    subtitle: "Comprehensive analysis of planned 60m sector arterial roads, underground drainage conduits, and dedicated green safety buffers.",
-    excerpt: "An overview of the Yamuna Expressway Master Plan 2041, highlighting how Sector 22D stands at the center of planned commercial zones, educational clusters, and high-speed transit networks.",
-    coverImage: "/images/blog/yeida-master-plan-infrastructure.jpg",
-    category: "Infrastructure & Transit",
-    date: "September 10, 2025",
-    isoDate: "2025-09-10",
-    readTime: "5 min read",
-    author: {
-      name: "Northwind Research Desk",
-      role: "Infrastructure & Policy Specialist"
-    },
-    tags: ["YEIDA Master Plan", "Sector 22D", "Urban Infrastructure", "Expressway Development"]
+    slug: "amenities-to-consider-when-choosing-a-residential-property",
+    title: "Amenities to Consider When Choosing a Residential Property",
+    category: "Community Planning",
+    date: "August 2025",
+    isoDate: "2025-08-30",
+    excerpt:
+      "Long-term satisfaction in a residential community depends on well-planned amenities such as dedicated fitness spaces, multi-tiered security gatehouses, landscaped walking trails, and adequate resident parking that remain practical to maintain.",
   },
   {
-    slug: "vastu-principles-cross-ventilation-modern-homes",
-    title: "Harmonizing Vastu Principles with Contemporary Architecture in 3 & 4 BHK Flats",
-    subtitle: "Balancing directional energy flows with dual-aspect cross ventilation for a serene, health-first living space.",
-    excerpt: "How thoughtful building orientation ensures positive natural daylighting, morning sun exposure, and strict adherence to foundational Vastu Shastra layout guidelines.",
-    coverImage: "/images/blog/vastu-cross-ventilation-luxury-homes.jpg",
-    category: "Home Design",
-    date: "September 05, 2025",
-    isoDate: "2025-09-05",
-    readTime: "4 min read",
-    author: {
-      name: "Northwind Design Studio",
-      role: "Vastu & Space Planning Consultant"
-    },
-    tags: ["Vastu Shastra", "Cross Ventilation", "Floor Planning", "Natural Daylight"]
+    slug: "questions-to-ask-before-finalizing-a-property",
+    title: "Questions to Ask Before Finalizing a Property",
+    category: "Buyer Due Diligence",
+    date: "August 2025",
+    isoDate: "2025-08-22",
+    excerpt:
+      "Essential questions for property consultants should cover verified construction specifications, window and balcony glazing standards, power backup capacities, water treatment systems, and structured payment milestones.",
   },
   {
-    slug: "smart-sustainable-residences-yamuna-expressway",
-    title: "Sustainable & Energy-Efficient Living: The Future of Premium High-Rise Living",
-    subtitle: "Rainwater harvesting, solar podium illumination, and insulated UPVC double-glazed windows for eco-conscious families.",
-    excerpt: "Explore the modern green technologies integrated into low-density luxury towers that reduce carbon footprints while lowering long-term maintenance overheads.",
-    coverImage: "/images/blog/smart-sustainable-residences-yamuna.jpg",
+    slug: "a-practical-checklist-for-first-time-homebuyers",
+    title: "A Practical Checklist for First-Time Homebuyers",
+    category: "Property Advisory",
+    date: "August 2025",
+    isoDate: "2025-08-15",
+    excerpt:
+      "A structured checklist guiding new buyers through project blueprint reviews, layout efficiency calculations, verified developer documentation, site orientation checks, and transparent payment milestone schedules.",
+  },
+  {
+    slug: "evaluating-natural-light-and-cross-ventilation-in-high-rise-towers",
+    title: "Evaluating Natural Light and Cross-Ventilation in Residential Towers",
     category: "Architecture & Planning",
-    date: "August 28, 2025",
-    isoDate: "2025-08-28",
-    readTime: "5 min read",
-    author: {
-      name: "Northwind Green Architecture Desk",
-      role: "Sustainability Engineer"
-    },
-    tags: ["Green Homes", "Eco Living", "Energy Efficiency", "UPVC Glazing"]
+    date: "July 2025",
+    isoDate: "2025-07-28",
+    excerpt:
+      "Dual-aspect tower positioning, generous window-to-wall ratios, and deep balcony overhangs allow natural cross-breezes and daylight to permeate living zones, reducing artificial lighting and climate control loads.",
   },
   {
-    slug: "metro-connectivity-jewar-airport-delhi-ncr",
-    title: "Upcoming Metro & High-Speed Rail: Connecting Yamuna Expressway to Delhi & Noida",
-    subtitle: "From the dedicated Jewar Airport Metro link to the Eastern Peripheral Expressway, seamless transit is redefining daily commutes.",
-    excerpt: "A deep dive into upcoming multimodal transport hubs, connecting Sector 22D to Central Delhi, Noida Electronic City, and the Indira Gandhi International Airport.",
-    coverImage: "/images/blog/metro-connectivity-jewar-delhi-ncr.jpg",
-    category: "Infrastructure & Transit",
-    date: "August 20, 2025",
-    isoDate: "2025-08-20",
-    readTime: "4 min read",
-    author: {
-      name: "Northwind Research Desk",
-      role: "Transit & Infrastructure Analyst"
-    },
-    tags: ["Metro Connectivity", "Airport Metro", "Rapid Transit", "Delhi NCR Commute"]
+    slug: "low-density-vs-high-density-master-planning",
+    title: "Low-Density vs. High-Density Master Planning in Modern Enclaves",
+    category: "Community Planning",
+    date: "July 2025",
+    isoDate: "2025-07-14",
+    excerpt:
+      "Low-density master planning limits the number of homes per acre, resulting in quieter corridors, lower elevator wait times, expansive central open lawns, and greater privacy for every resident.",
   },
-  {
-    slug: "green-buffers-botanical-parks-lifestyle-impact",
-    title: "The Therapeutic Power of Botanical Parks & Reflexology Walkways in Gated Enclaves",
-    subtitle: "How dedicated landscaped water gardens and shaded jogging trails promote physical wellness and everyday mental calm.",
-    excerpt: "Discover how nature-integrated landscaping with native tree species, meditation lawns, and therapeutic water pavilions enrich daily routines for all age groups.",
-    coverImage: "/images/blog/green-buffers-botanical-parks.jpg",
-    category: "Lifestyle & Amenities",
-    date: "August 14, 2025",
-    isoDate: "2025-08-14",
-    readTime: "4 min read",
-    author: {
-      name: "Northwind Landscape Studio",
-      role: "Botanical & Wellness Designer"
-    },
-    tags: ["Botanical Parks", "Zen Gardens", "Wellness Walkways", "Mental Health"]
-  },
-  {
-    slug: "modular-kitchens-designer-interiors-guide",
-    title: "Gourmet Modular Kitchens: Combining Granite Counters, Utility Zones & Ergonomics",
-    subtitle: "Design strategies for clutter-free culinary spaces featuring dry utility balconies and high-durability surface finishes.",
-    excerpt: "A practical guide to kitchen interior architecture in luxury apartments, focusing on optimal appliance zoning, ventilation conduits, and resilient surface selections.",
-    coverImage: "/images/blog/modular-kitchens-designer-interiors.jpg",
-    category: "Luxury Interiors",
-    date: "August 08, 2025",
-    isoDate: "2025-08-08",
-    readTime: "4 min read",
-    author: {
-      name: "Northwind Design Studio",
-      role: "Modular Kitchen Specialist"
-    },
-    tags: ["Modular Kitchen", "Granite Countertops", "Utility Balcony", "Interior Specs"]
-  }
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {

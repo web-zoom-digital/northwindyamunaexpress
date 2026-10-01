@@ -7,8 +7,8 @@ import { useLeadModal } from "./LeadModalContext";
 import AnimatedReveal from "./AnimatedReveal";
 
 export default function CTASection({
-  title = "Ready to Experience Northwind Estate?",
-  subtitle = "Schedule a site visit today or request verified unit availability & official cost sheets.",
+  title = "Plan a Physical Site Visit to Northwind Estate",
+  subtitle = "Walk through the Sector 22D location, review tower orientation and master plans, and request verified pricing from our advisory desk.",
 }: {
   title?: string;
   subtitle?: string;
@@ -16,12 +16,12 @@ export default function CTASection({
   const { openLeadModal } = useLeadModal();
 
   return (
-    <section className="py-12 sm:py-16 bg-[#0D3829] text-[#FFFCEC] relative border-t border-[#ACC78C]/20 subtle-grid">
+    <section className="py-12 sm:py-16 bg-[#0D3829] text-[#FFFCEC] relative subtle-grid">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
         
         <AnimatedReveal direction="up" className="space-y-4">
           <span className="text-xs font-semibold tracking-wider text-[#ACC78C] uppercase block">
-            Sector 22D Yamuna Expressway
+            Sector 22D • Yamuna Expressway
           </span>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#FFFCEC] leading-tight">
@@ -36,32 +36,37 @@ export default function CTASection({
             <button
               onClick={() =>
                 openLeadModal({
-                  title: "Schedule Free Site Visit",
+                  title: "Schedule a Site Visit",
                   ctaSource: "Bottom CTA Section",
                 })
               }
-              className="bg-[#ACC78C] hover:bg-[#9BB77A] text-[#0D3829] font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider shadow-md transition flex items-center gap-2 group cursor-pointer border border-[#ACC78C]"
+              className="bg-[#ACC78C] hover:bg-[#9BB77A] text-[#0D3829] font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider shadow-md hover:shadow-xl transition flex items-center gap-2 group cursor-pointer"
             >
               <Calendar className="w-4 h-4 text-[#0D3829]" />
-              <span>Schedule Site Visit</span>
+              <span>Schedule a Site Visit</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#0D3829]" />
             </button>
 
-            <a
-              href={`tel:${siteConfig.phone}`}
-              className="bg-[#FFFCEC] hover:bg-[#F4F1DF] text-[#0D3829] border border-[#0D3829]/20 font-semibold px-5 py-3 rounded-xl text-xs transition flex items-center gap-2 shadow-xs"
+            <button
+              onClick={() =>
+                openLeadModal({
+                  title: "Request Instant Call Back from Sales Desk",
+                  ctaSource: "Bottom CTA Section Call Button",
+                })
+              }
+              className="bg-[#FFFCEC] hover:bg-[#F4F1DF] text-[#0D3829] font-semibold px-5 py-3 rounded-xl text-xs transition flex items-center gap-2 shadow-sm hover:shadow-md cursor-pointer"
             >
               <Phone className="w-4 h-4 text-[#0D3829]" />
-              <span>Call +91 97177 00596</span>
-            </a>
+              <span>Call Sales (+91 97177 00596)</span>
+            </button>
           </div>
 
           <div className="pt-2 flex items-center justify-center gap-6 text-[11px] text-[#ACC78C]/80 font-medium">
             <span className="flex items-center gap-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#ACC78C]" /> Site Visit Assistance
+              <ShieldCheck className="w-3.5 h-3.5 text-[#ACC78C]" /> Location Consultation
             </span>
             <span className="flex items-center gap-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#ACC78C]" /> Price Sheets Available
+              <ShieldCheck className="w-3.5 h-3.5 text-[#ACC78C]" /> Floor Plan Overviews
             </span>
           </div>
         </AnimatedReveal>

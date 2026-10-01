@@ -15,8 +15,8 @@ export const metadata = {
 export default function DisclaimerPage() {
   return (
     <>
-      {/* Full-Screen Hero Section */}
-      <section className="relative min-h-[60vh] sm:min-h-screen flex items-center pt-24 sm:pt-28 pb-16 overflow-hidden bg-[#0D3829] text-[#FFFCEC] subtle-grid">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center pt-28 sm:pt-32 pb-16 overflow-hidden bg-[#0D3829] text-[#FFFCEC]">
         {/* Full Screen Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -24,28 +24,25 @@ export default function DisclaimerPage() {
             alt="Northwind Estate Elevation"
             fill
             priority
-            className="object-cover opacity-25 filter blur-[1px] scale-105"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D3829] via-[#0D3829]/85 to-[#0D3829]/95" />
         </div>
 
-        {/* Ambient Glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[250px] bg-[#ACC78C]/15 rounded-full blur-[100px] pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full space-y-4 text-center sm:text-left flex flex-col items-center sm:items-start">
-          <Breadcrumb items={[{ label: "Disclaimer", href: "/disclaimer" }]} variant="dark" />
+          <div className="max-w-3xl bg-[#0D3829]/85 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-[#ACC78C]/25 shadow-2xl space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#ACC78C]">
+              Real Estate Information Notice
+            </p>
 
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ACC78C]/20 border border-[#ACC78C]/30 text-xs font-semibold text-[#ACC78C]">
-            <ShieldAlert className="w-3.5 h-3.5 text-[#ACC78C]" /> Real Estate Information Notice
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#FFFCEC] leading-tight">
+              Disclaimer <span className="text-[#ACC78C]">Notice</span>
+            </h1>
+
+            <p className="text-xs sm:text-sm md:text-base text-[#FFFCEC]/90 font-light leading-relaxed">
+              Legal notice regarding architectural renderings, RERA disclosures, unit availability, and informational usage for Northwind Estate, Sector 22D Yamuna Expressway.
+            </p>
           </div>
-
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#FFFCEC] leading-tight">
-            Disclaimer <span className="gold-gradient-text">Notice</span>
-          </h1>
-
-          <p className="text-sm sm:text-base text-[#ACC78C]/90 font-light leading-relaxed">
-            Legal notice regarding architectural renderings, RERA disclosures, unit availability, and informational usage for Northwind Estate, Sector 22D Yamuna Expressway.
-          </p>
         </div>
       </section>
 

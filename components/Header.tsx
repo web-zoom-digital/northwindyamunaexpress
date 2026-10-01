@@ -96,13 +96,18 @@ export default function Header() {
 
           {/* Action CTAs Desktop */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href={`tel:${siteConfig.phone}`}
-              className="flex items-center gap-2 text-xs font-semibold text-[#0D3829] hover:bg-[#0D3829]/10 px-3.5 py-2.5 rounded-lg bg-[#0D3829]/5 border border-[#0D3829]/15 transition shadow-xs"
+            <button
+              onClick={() =>
+                openLeadModal({
+                  title: "Request Call Back from Sales Desk",
+                  ctaSource: "Header Desktop Call Button",
+                })
+              }
+              className="flex items-center gap-2 text-xs font-semibold text-[#0D3829] hover:bg-[#0D3829]/10 px-3.5 py-2.5 rounded-lg bg-[#0D3829]/5 border border-[#0D3829]/15 transition shadow-xs cursor-pointer"
             >
               <Phone className="w-3.5 h-3.5 text-[#0D3829]" />
               <span>Call Sales</span>
-            </a>
+            </button>
 
             <button
               onClick={() =>
@@ -174,13 +179,19 @@ export default function Header() {
                   <span>Schedule Site Visit</span>
                 </button>
 
-                <a
-                  href={`tel:${siteConfig.phone}`}
-                  className="w-full bg-[#0D3829]/5 hover:bg-[#0D3829]/10 text-[#0D3829] border border-[#0D3829]/15 font-semibold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition"
+                <button
+                  onClick={() => {
+                    closeMobileMenu();
+                    openLeadModal({
+                      title: "Request Direct Call Back (+91 97177 00596)",
+                      ctaSource: "Header Mobile Call Button",
+                    });
+                  }}
+                  className="w-full bg-[#0D3829]/5 hover:bg-[#0D3829]/10 text-[#0D3829] border border-[#0D3829]/15 font-semibold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition cursor-pointer"
                 >
                   <Phone className="w-4 h-4 text-[#0D3829]" />
                   <span>Call Direct (+91 97177 00596)</span>
-                </a>
+                </button>
               </div>
             </div>
           </>

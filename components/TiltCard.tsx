@@ -16,9 +16,9 @@ interface TiltCardProps {
 export default function TiltCard({
   children,
   className = "",
-  tiltDegree = 7,
+  tiltDegree = 3,
   perspective = 1000,
-  depth = 20,
+  depth = 10,
   onClick,
   clickable = false,
 }: TiltCardProps) {
@@ -57,6 +57,8 @@ export default function TiltCard({
     y.set(0);
   };
 
+  const isClickable = clickable || Boolean(onClick);
+
   return (
     <motion.div
       ref={ref}
@@ -68,7 +70,9 @@ export default function TiltCard({
         perspective: `${perspective}px`,
         transformStyle: "preserve-3d",
       }}
-      className={`relative transition-shadow duration-300 cursor-pointer ${className}`}
+      className={`relative transition-shadow duration-300 ${
+        isClickable ? "cursor-pointer" : ""
+      } ${className}`}
     >
       <motion.div
         style={{

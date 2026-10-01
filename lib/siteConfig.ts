@@ -2,9 +2,9 @@
 export const siteConfig = {
   name: "Northwind Estate",
   altName: "Northwind Sector 22D Yamuna Expressway",
-  tagline: "Premium 3 & 4 BHK Luxury Residences on Yamuna Expressway",
+  tagline: "Low-Density 3 & 4 BHK Residences in Sector 22D, Yamuna Expressway",
   description:
-    "Explore Northwind Estate in Sector 22D, Yamuna Expressway, Greater Noida. Modern low-density residential community featuring luxury 3 & 4 BHK apartments near upcoming Noida International Airport.",
+    "Northwind Estate offers 3 & 4 BHK low-density apartments in Sector 22D, Yamuna Expressway, Greater Noida. Featuring open green spaces, spacious balconies, and convenient arterial road access.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://northwindestate.com",
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || "+919717700596",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919717700596",

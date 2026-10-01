@@ -29,8 +29,8 @@ export default function HomePage() {
       <BlogSection />
       <FAQSection />
       <CTASection
-        title="Explore Northwind Estate in Sector 22D"
-        subtitle="Book a private site visit today to experience NCR's premier low-density residential community."
+        title="Plan a Physical Site Visit to Northwind Estate"
+        subtitle="Walk through the Sector 22D location, examine tower orientation and site plans, and request verified pricing from our advisory desk."
       />
     </>
   );

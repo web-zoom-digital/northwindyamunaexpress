@@ -13,39 +13,39 @@ export interface FAQItem {
 
 export const defaultFaqs: FAQItem[] = [
   {
-    question: "What BHK configurations are available at Northwind Estate?",
+    question: "What apartment configurations are available at Northwind Estate?",
     answer:
-      "Northwind Estate offers spacious 3 BHK luxury apartments and 4 BHK ultra estate residences featuring modern layout planning, vitrified flooring, large balconies, and UPVC toughened glass doors."
+      "Northwind Estate offers 3 BHK and 4 BHK low-density residences. Layouts are planned with dedicated living and dining areas, large sit-out balconies, UPVC double-glazed windows, and separate kitchen utility zones."
   },
   {
-    question: "Where is Northwind Estate located on Yamuna Expressway?",
+    question: "Where is the development located?",
     answer:
-      "The project is situated in Sector 22D on Yamuna Expressway, Greater Noida. The location offers seamless connectivity to Greater Noida, Noida, Delhi, and Agra, and is in close proximity to the upcoming Noida International Airport (Jewar)."
+      "The project is situated in Sector 22D on the Yamuna Expressway, Greater Noida. The location offers direct connectivity to major arterial sector roads, regional commercial hubs, and the upcoming Noida International Airport corridor at Jewar."
   },
   {
-    question: "What amenities are included in the gated society?",
+    question: "What community amenities are planned for residents?",
     answer:
-      "Residents enjoy access to a modern clubhouse, swimming pool with kids pool, fully-equipped fitness center, landscaped Zen gardens, children's play zone, 24x7 multi-tier security, and 100% power backup."
+      "The community includes a resident clubhouse, a swimming pool with leisure deck, a fully equipped fitness gym, landscaped gardens, jogging tracks, a children's play zone, 24x7 gated security, and power backup provisions."
   },
   {
-    question: "How can I request official pricing and payment schedules?",
+    question: "How can prospective buyers request cost sheets and pricing details?",
     answer:
-      "Official unit pricing, cost sheets, and payment plans are available on request. You can click 'Inquiry Price' or complete the quick lead enquiry form to receive complete pricing details from our sales team."
+      "Detailed cost sheets, payment schedules, and unit availability are available on request. You can submit an inquiry through our website or connect directly with our property advisory team."
   },
   {
-    question: "How do I schedule a physical site visit?",
+    question: "How can I arrange a physical site visit?",
     answer:
-      "You can schedule a site visit by clicking 'Schedule Site Visit' on the website or contacting our sales desk directly. Site visit cab assistance can also be coordinated upon request."
+      "Site visits can be scheduled via our online form or by calling our sales desk directly. Our advisory team coordinates on-site walk-throughs, orientation guidance, and floor plan consultations."
   },
   {
-    question: "Are detailed floor plans and master site layouts available?",
+    question: "Can I download official floor plans and site layouts?",
     answer:
-      "Yes, digital floor plan layouts for both 3 BHK and 4 BHK apartments along with the Sector 22D site master plan can be requested in high-resolution PDF format via our lead form."
+      "Yes, detailed architectural floor plan schematics for 3 BHK and 4 BHK layouts, along with the Sector 22D master site layout, can be requested in digital PDF format."
   },
   {
-    question: "What is the RERA registration status for Northwind Estate?",
+    question: "What is the regulatory and RERA registration status?",
     answer:
-      "RERA details and official registration updates are to be updated. Please consult our property representatives for the latest official regulatory filing information."
+      "Official RERA registration and statutory disclosures are being processed in compliance with regulatory standards. Please consult our representatives for the latest official filing updates."
   }
 ];
 
@@ -72,7 +72,7 @@ export default function FAQSection({ faqs = defaultFaqs }: { faqs?: FAQItem[] })
   };
 
   return (
-    <section id="faq" className="py-20 bg-[#F4F1DF] text-[#0D3829] border-t border-[#0D3829]/15">
+    <section id="faq" className="py-20 bg-[#F4F1DF] text-[#0D3829]">
       {/* FAQ Schema Script */}
       <script
         type="application/ld+json"
@@ -101,7 +101,7 @@ export default function FAQSection({ faqs = defaultFaqs }: { faqs?: FAQItem[] })
             return (
               <AnimatedReveal key={idx} direction="up" delay={idx * 0.05}>
                 <div
-                  className="bg-[#FFFCEC] border border-[#0D3829]/15 rounded-xl overflow-hidden transition-all duration-200 shadow-xs hover-card-lift"
+                  className="bg-[#FFFCEC] rounded-xl overflow-hidden transition-all duration-200 shadow-sm hover:shadow-md"
                 >
                   <button
                     onClick={() => toggleFaq(idx)}
@@ -138,7 +138,7 @@ export default function FAQSection({ faqs = defaultFaqs }: { faqs?: FAQItem[] })
 
         {/* Still have questions banner */}
         <AnimatedReveal direction="up" delay={0.3} className="mt-12">
-          <div className="text-center bg-[#FFFCEC] border border-[#0D3829]/15 rounded-xl p-6 space-y-3 shadow-xs hover-card-lift">
+          <div className="text-center bg-[#FFFCEC] rounded-xl p-6 space-y-3 shadow-md">
             <h3 className="text-base font-serif font-bold text-[#0D3829]">Have additional questions regarding Northwind Estate?</h3>
             <p className="text-xs text-[#5E7168] font-light">
               Our property consultants are ready to assist you with customized cost sheets and floor plan details.
@@ -150,7 +150,7 @@ export default function FAQSection({ faqs = defaultFaqs }: { faqs?: FAQItem[] })
                   ctaSource: "FAQ Section Ask Question",
                 })
               }
-              className="inline-flex items-center gap-2 bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] border border-[#ACC78C]/30 font-semibold px-5 py-2.5 rounded-lg text-xs uppercase tracking-wider transition shadow-xs cursor-pointer"
+              className="inline-flex items-center gap-2 bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] font-semibold px-6 py-2.5 rounded-lg text-xs uppercase tracking-wider transition shadow-sm hover:shadow-md cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 text-[#ACC78C]" />
               <span>Ask a Consultant</span>

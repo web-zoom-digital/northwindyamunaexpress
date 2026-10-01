@@ -1,133 +1,206 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
-import { Dumbbell, Trees, ShieldCheck, Waves, Smile, Building2, ArrowRight } from "lucide-react";
+import {
+  motion,
+  AnimatePresence,
+} from "framer-motion";
+import {
+  ArrowRight,
+} from "lucide-react";
 import { useLeadModal } from "./LeadModalContext";
 import AnimatedReveal from "./AnimatedReveal";
-import TiltCard from "./TiltCard";
+
+interface AmenityImageItem {
+  id: string;
+  image: string;
+  alt: string;
+}
+
+const amenityImages: AmenityImageItem[] = [
+  {
+    id: "swimming-pool",
+    image: "/images/amenities/swimming-pool.jpg",
+    alt: "Swimming Pool & Resort Deck",
+  },
+  {
+    id: "fitness-gym",
+    image: "/images/amenities/fitness-gym.jpg",
+    alt: "Modern Fitness Gymnasium",
+  },
+  {
+    id: "zen-gardens",
+    image: "/images/amenities/zen-gardens.jpg",
+    alt: "Landscaped Zen & Botanical Gardens",
+  },
+  {
+    id: "clubhouse",
+    image: "/images/amenities/clubhouse.jpg",
+    alt: "Architectural Clubhouse & Lounge",
+  },
+  {
+    id: "kids-play",
+    image: "/images/amenities/kids-play.jpg",
+    alt: "Children's Adventure Play Area",
+  },
+  {
+    id: "jogging-track",
+    image: "/images/blog/green-buffers-botanical-parks.jpg",
+    alt: "Botanical Jogging Circuit & Green Buffers",
+  },
+  {
+    id: "security",
+    image: "/images/amenities/security-gate.jpg",
+    alt: "24x7 Multi-Tier Smart Security Gatehouse",
+  },
+];
 
 export default function AmenitiesSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const { openLeadModal } = useLeadModal();
 
-  const amenityCards = [
-    {
-      title: "Clubhouse & Social Lounge",
-      desc: "Architecturally styled clubhouse for community events, indoor recreation, and private gatherings.",
-      icon: Building2,
-      image: "/images/amenities/clubhouse.jpg",
-      tag: "Social Hub"
-    },
-    {
-      title: "Swimming Pool & Kids Pool",
-      desc: "Refresh and relax with a temperature-controlled swimming pool complete with sun loungers and deck space.",
-      icon: Waves,
-      image: "/images/amenities/swimming-pool.jpg",
-      tag: "Aqua Zone"
-    },
-    {
-      title: "Fully-Equipped Fitness Gym",
-      desc: "State-of-the-art cardiovascular and strength training equipment for health-conscious residents.",
-      icon: Dumbbell,
-      image: "/images/amenities/fitness-gym.jpg",
-      tag: "Wellness"
-    },
-    {
-      title: "Landscaped Zen Gardens",
-      desc: "Expansive green spaces, flower beds, and shaded walking trails designed for peaceful evening walks.",
-      icon: Trees,
-      image: "/images/amenities/zen-gardens.jpg",
-      tag: "Greenery"
-    },
-    {
-      title: "Children's Play Area",
-      desc: "Soft-paved outdoor play zone with modern swing sets, slides, and rubberized safety flooring.",
-      icon: Smile,
-      image: "/images/amenities/kids-play.jpg",
-      tag: "Kids Zone"
-    },
-    {
-      title: "24x7 Security & Power Backup",
-      desc: "Multi-tiered security checkpoint with CCTV monitoring, smart card access, and 100% power backup.",
-      icon: ShieldCheck,
-      image: "/images/amenities/security-gate.jpg",
-      tag: "Security & Utilities"
+  // Touch swipe refs
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const total = amenityImages.length;
+  const currentItem = amenityImages[currentIndex];
+
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % total);
+  }, [total]);
+
+  const handlePrev = useCallback(() => {
+    setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
+  }, [total]);
+
+  const handleSelect = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  // Automatic 2-Second Transition Loop
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      handleNext();
+    }, 2000);
+    return () => clearInterval(timer);
+  }, [handleNext, isPaused]);
+
+  // Touch Swipe Handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 50;
+
+    if (distance > minSwipeDistance) {
+      handleNext();
+    } else if (distance < -minSwipeDistance) {
+      handlePrev();
     }
-  ];
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
+  // Remaining preview images starting after currentIndex
+  const getPreviewSlides = () => {
+    const previewList: { item: AmenityImageItem; originalIndex: number }[] = [];
+    for (let i = 1; i < total; i++) {
+      const idx = (currentIndex + i) % total;
+      previewList.push({ item: amenityImages[idx], originalIndex: idx });
+    }
+    return previewList;
+  };
+
+  const previewSlides = getPreviewSlides();
 
   return (
-    <section id="amenities" className="py-20 bg-[#F4F1DF] text-[#0D3829] relative">
+    <section id="amenities" className="py-20 bg-[#F4F1DF] text-[#0D3829] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <AnimatedReveal direction="up" className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-          <span className="text-xs font-semibold tracking-wider text-[#0D3829] uppercase block">
-            Lifestyle Facilities
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D3829]">
-            Curated Project Amenities
+        {/* Section Header */}
+        <AnimatedReveal direction="up" className="text-center max-w-3xl mx-auto space-y-3 mb-10 sm:mb-14">
+          <p className="text-xs font-semibold tracking-widest text-[#5E7168] uppercase">
+            Resident Amenities &amp; Facilities
+          </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#0D3829]">
+            Community Amenities Planned for Daily Living
           </h2>
-          <p className="text-xs sm:text-sm text-[#5E7168] font-light">
-            Everything you need for a comfortable, healthy, and secure lifestyle in Sector 22D, Yamuna Expressway.
+          <p className="text-xs sm:text-sm text-[#5E7168] font-light max-w-2xl mx-auto">
+            From a resident clubhouse and fitness center to landscaped walking circuits and dedicated children&apos;s recreation zones, every facility is planned for practical everyday use.
           </p>
         </AnimatedReveal>
 
-        {/* Amenity Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-8">
-          {amenityCards.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <AnimatedReveal key={idx} direction="up" delay={idx * 0.05} className="h-full">
-                <TiltCard tiltDegree={5} depth={12} className="h-full">
-                  <div
-                    className="bg-[#FFFCEC] border border-[#0D3829]/15 hover:border-[#0D3829] rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(13,58,41,0.06)] hover:shadow-[0_12px_30px_rgba(13,58,41,0.12)] transition-all duration-300 group flex flex-col justify-between h-full"
+        {/* Pure Image Animated Slider Showcase (Auto 2s, Seamless Images) */}
+        <AnimatedReveal direction="up" delay={0.1}>
+          <div
+            className="relative h-[380px] sm:h-[460px] md:h-[540px] lg:h-[580px] w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-[#0D3829] select-none flex flex-col justify-center p-4 sm:p-6 md:p-8"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {/* Active Main Background Image with 2s Smooth Crossfade */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentItem.id}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0 z-0"
+              >
+                <Image
+                  src={currentItem.image}
+                  alt={currentItem.alt}
+                  fill
+                  priority
+                  sizes="100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Middle / Right Floating Image Preview Strip */}
+            <div className="relative z-10 flex justify-end items-center my-auto">
+              <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-2 scrollbar-none snap-x max-w-full md:max-w-xl lg:max-w-2xl">
+                {previewSlides.map(({ item, originalIndex }) => (
+                  <motion.div
+                    key={item.id}
+                    whileHover={{ scale: 1.06, y: -4 }}
+                    whileTap={{ scale: 0.96 }}
+                    transition={{ duration: 0.25 }}
+                    onClick={() => handleSelect(originalIndex)}
+                    className="relative h-28 sm:h-36 md:h-44 min-w-[120px] sm:min-w-[150px] md:min-w-[180px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl bg-black/40 cursor-pointer flex-shrink-0 group snap-start backdrop-blur-xs"
                   >
-                    <div>
-                      <div className="aspect-[16/10] relative bg-[#F4F1DF] overflow-hidden">
-                        <Image
-                          src={item.image}
-                          alt={item.title}
-                          fill
-                          className="object-cover"
-                        />
-                        <div className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-[#0D3829] text-[#FFFCEC] text-[9px] sm:text-[10px] font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border border-[#ACC78C]/30 uppercase tracking-wider shadow-xs">
-                          {item.tag}
-                        </div>
-                      </div>
+                    <Image
+                      src={item.image}
+                      alt={item.alt}
+                      fill
+                      sizes="200px"
+                      className="object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
 
-                      <div className="p-3.5 sm:p-6 space-y-1.5 sm:space-y-2">
-                        <div className="flex items-center gap-1.5 sm:gap-2 text-[#0D3829] mb-0.5 sm:mb-1">
-                          <Icon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-[#0D3829]" />
-                          <h3 className="text-xs sm:text-lg font-serif font-bold text-[#0D3829] group-hover:text-[#1E3A2B] transition leading-snug">
-                            {item.title}
-                          </h3>
-                        </div>
-                        <p className="text-[11px] sm:text-xs text-[#2D3C25] leading-relaxed font-light line-clamp-3 sm:line-clamp-none">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="p-3.5 sm:p-6 pt-0">
-                      <button
-                        onClick={() =>
-                          openLeadModal({
-                            title: `Enquire About ${item.title}`,
-                            ctaSource: `Amenity Card ${item.title}`,
-                          })
-                        }
-                        className="w-full bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] border border-[#ACC78C]/30 py-2 sm:py-2.5 px-2 sm:px-3 rounded-xl text-[10px] sm:text-xs font-semibold transition flex items-center justify-center gap-1 shadow-xs cursor-pointer"
-                      >
-                        <span>Enquire</span>
-                        <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#ACC78C]" />
-                      </button>
-                    </div>
-                  </div>
-                </TiltCard>
-              </AnimatedReveal>
-            );
-          })}
-        </div>
+          </div>
+        </AnimatedReveal>
 
         {/* Bottom Centered CTA */}
         <AnimatedReveal direction="up" delay={0.2} className="pt-12 text-center">
@@ -138,7 +211,7 @@ export default function AmenitiesSection() {
                 ctaSource: "Amenities Section Bottom CTA",
               })
             }
-            className="inline-flex items-center justify-center gap-2 bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] border border-[#ACC78C]/30 font-semibold px-8 py-3.5 rounded-xl text-xs sm:text-sm uppercase tracking-wider shadow-sm hover:shadow-md transition duration-300 cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] font-semibold px-8 py-3.5 rounded-xl text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-xl transition duration-300 cursor-pointer"
           >
             <span>Request Complete Amenities Brochure</span>
             <ArrowRight className="w-4 h-4 text-[#ACC78C]" />
@@ -149,4 +222,3 @@ export default function AmenitiesSection() {
     </section>
   );
 }
-

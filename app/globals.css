@@ -64,86 +64,51 @@
   }
 }
 
-/* Custom Gradient & Utility Classes for Northwind Estates Brand */
+/* Custom Refined Utility Classes for Northwind Estates Brand */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #B9A148 0%, #ACC78C 50%, #B9A148 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ACC78C;
 }
 
 .brand-gradient-text {
-  background: linear-gradient(135deg, #0D3829 0%, #1E3A2B 50%, #0D3829 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gold-gradient-bg {
-  background: linear-gradient(135deg, #0D3829 0%, #1E3A2B 50%, #0D3829 100%);
+  color: #0D3829;
 }
 
 .gold-border {
-  border-color: rgba(13, 56, 41, 0.2);
+  border-color: rgba(172, 199, 140, 0.25);
 }
 
 .glass-panel {
-  background: rgba(255, 252, 236, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(13, 56, 41, 0.15);
-}
-
-.glass-panel-dark {
-  background: rgba(13, 56, 41, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(172, 199, 140, 0.25);
-}
-
-.glass-panel-light {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #FFFCEC;
   border: 1px solid rgba(13, 56, 41, 0.12);
 }
 
+.glass-panel-dark {
+  background: #0D3829;
+  border: 1px solid rgba(172, 199, 140, 0.2);
+}
+
+.glass-panel-light {
+  background: #FFFFFF;
+  border: 1px solid rgba(13, 56, 41, 0.08);
+}
+
 .subtle-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(13, 56, 41, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(13, 56, 41, 0.04) 1px, transparent 1px);
+  background-color: #0D3829;
 }
 
 /* ==========================================================================
-   ANIMATION KEYFRAMES & INTERACTION STYLES
+   INTERACTION & MODAL TRANSITIONS
    ========================================================================== */
-
-/* Shimmer Light Sweep for Premium CTAs */
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(200%); }
-}
-
-/* Subtle Floating Motion */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-}
-
-/* Pulse Soft Glow */
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(179, 142, 70, 0.3); }
-  50% { box-shadow: 0 0 16px 4px rgba(179, 142, 70, 0.4); }
-}
 
 /* Modal Entrance Scale */
 @keyframes modalPop {
-  0% { opacity: 0; transform: scale(0.95) translateY(12px); }
+  0% { opacity: 0; transform: scale(0.98) translateY(8px); }
   100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 /* Slide Up Fade Entrance */
 @keyframes slideUpFade {
-  0% { opacity: 0; transform: translateY(20px); }
+  0% { opacity: 0; transform: translateY(12px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
@@ -153,25 +118,16 @@
   100% { opacity: 1; }
 }
 
-/* Utility Animation Classes */
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 3s ease-in-out infinite;
-}
-
 .animate-modal-pop {
-  animation: modalPop 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-slide-up-fade {
-  animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideUpFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Button Shimmer Overlay */
